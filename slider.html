@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+    <style>
+        * { margin: 0; padding: 0; }
+        div.item:nth-child(1) { background: blueviolet; }
+        div.item:nth-child(2) { background: skyblue; }
+        div.item:nth-child(3) { background: beige; }
+        
+        [data-role="slider"] {
+            position: relative;
+            overflow: hidden;
+            width: 500px; /* 고정된 너비 */
+            height: 300px; /* 고정된 높이 */
+        }
+        .container {
+            display: flex; /* 슬라이더 항목을 가로로 나열하기 위해 flexbox 사용 */
+            position: absolute;
+            width: 1500px; /* 총 항목 너비 = 개수 * 너비 */
+            height: 100%; /* 슬라이더의 높이 */
+            transition: left 0.5s; /* 애니메이션 효과 */
+        }
+        .item {
+            width: 500px; /* 슬라이더 아이템의 너비 */
+            height: 300px; /* 슬라이더 아이템의 높이 */
+        }
+        button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        #left-button {
+            left: 10px;
+        }
+        #right-button {
+            right: 10px;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            let width = $('[data-role="slider"]').attr('data-width');
+            let height = $('[data-role="slider"]').attr('data-height');
+            let count = $('[data-role="slider"] .item').length;
+
+            $('[data-role="slider"]').css({
+                width: width,
+                height: height
+            }).find('.container').css({
+                width: count * width
+            }).find('.item').css({
+                width: width,
+                height: height
+            });
+
+            let currentPage = 0;
+            let changePage = function() {
+                $('[data-role="slider"] > .container').animate({
+                    left: -currentPage * width
+                }, 500);
+            };
+
+            $('#left-button').click(function(){
+                if(currentPage > 0) {
+                    currentPage -= 1;
+                    changePage();
+                }
+            });
+
+            $('#right-button').click(function(){
+                if(currentPage < count - 1) {
+                    currentPage += 1;
+                    changePage();
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div data-role="slider" data-width="500" data-height="300">
+        <div class="container">
+            <div class="item">
+                <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo eum, praesentium provident fugit facere aspernatur.</p>
+            </div>
+            <div class="item">
+                <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo eum, praesentium provident fugit facere aspernatur.</p>
+            </div>
+            <div class="item">
+                <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo eum, praesentium provident fugit facere aspernatur.</p>
+            </div>
+        </div>
+        <button id="left-button">◁</button>
+        <button id="right-button">▷</button>    
+    </div>
+</body>
+</html>

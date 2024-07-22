@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>masonry</title>
+    <style>
+        /* 모든 요소의 기본 여백과 패딩을 제거 */
+        * { margin: 0; padding: 0; }
+        /* .box 클래스에 대한 스타일 정의 */
+        .box {
+            background: black; /* 배경색을 검정으로 설정 */
+            margin: 5px; /* 상자 사이의 간격을 5px로 설정 */
+        }
+    </style>
+    <!-- jQuery 라이브러리 포함 -->
+    <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+    <!-- Masonry 플러그인 포함 -->
+    <script src="https://masonry.desandro.com/masonry.pkgd.min.js"></script>
+    <script>
+        // 문서가 완전히 로드된 후 실행되는 jQuery 함수
+        $(document).ready(function(){
+            // 100개의 .box 요소를 생성하고 body 요소에 추가
+            for(let i = 0; i < 100; i++){
+                $('<div></div>').addClass('box').css({
+                    width: 100, // 상자의 너비를 100px로 설정
+                    height: Math.floor(Math.random() * 100) + 50 // 상자의 높이를 50px에서 149px 사이의 랜덤 값으로 설정
+                }).appendTo('body');
+            }
+            // body 요소에 Masonry 레이아웃 적용
+            $('body').masonry({
+                columnWidth: 110 // 열의 너비를 110px로 설정
+            });
+        });
+    </script>
+</head>
+<body>
+    <!-- 초기에는 비어 있는 body 요소 -->
+</body>
+</html>

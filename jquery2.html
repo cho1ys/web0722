@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery css</title>
+    <script src = "https://code.jquery.com/jquery-3.6.4.js"></script>
+    <script>
+        $(document).ready(function (){
+            let output = '';
+            for(let i=0;i<256;i++){
+                output += '<div></div>';
+            }
+            document.body.innerHTML = output;
+            $('div').css({
+                height : 2,
+                backgroundColor: function(i){
+                    return 'rgb('+224+','+116+','+i+')';
+                }
+            });
+          
+        });
+    </script>
+</head>
+<body>
+</body>
+</html>

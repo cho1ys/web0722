@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lightbox</title>
+    <!-- lightbox 스타일 시트 포함 -->
+    <link rel="stylesheet" href="jquery.lightbox.css">
+    <!-- jQuery 라이브러리 포함 -->
+    <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+    <!-- lightbox 플러그인 포함 -->
+    <script src="jquery.lightbox.js"></script>
+    <script>
+        // 문서가 완전히 로드된 후 실행되는 jQuery 함수
+        $(document).ready(function(){
+            // 클래스가 'light'인 모든 <a> 요소에 lightBox 플러그인을 적용
+            $('a.light').lightBox();
+        });
+    </script>
+</head>
+<body>
+    <!-- lightbox 플러그인이 적용될 이미지 링크 -->
+    <a class="light" href="image1.jpg">lightbox</a>
+    <a class="light" href="image2.jpg">lightbox</a>
+    <a class="light" href="image3.jpg">lightbox</a>
+</body>
+</html>

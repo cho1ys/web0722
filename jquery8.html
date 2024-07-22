@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery animate</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+    <script>
+      $(document).ready(function () {
+        // clearQueue와 goToEnd 변수 초기화
+        let clearQueue = false;
+        let goToEnd = false;
+
+        // #clearQueue 체크박스의 변경 이벤트 리스너
+        $('#clearQueue').change(function(){
+            // clearQueue 변수를 체크박스 상태에 따라 업데이트
+            clearQueue = $(this).prop('checked');
+        });
+
+        // #goToEnd 체크박스의 변경 이벤트 리스너
+        $('#goToEnd').change(function(){
+            // goToEnd 변수를 체크박스 상태에 따라 업데이트
+            goToEnd = $(this).prop('checked');
+        });
+
+        // #stopButton 버튼의 클릭 이벤트 리스너
+        $('#stopButton').click(function(){
+            // #box 요소의 애니메이션을 중지하고, clearQueue와 goToEnd 값에 따라 동작 설정
+            $('#box').stop(clearQueue, goToEnd);
+        });
+
+        // #box 요소의 초기 CSS 설정
+        $('#box').css({
+            width: 100,
+            height: 100,
+            borderRadius: 50,
+            background: 'red'
+        });
+
+        // 3초마다 반복 실행되는 애니메이션
+        setInterval(function(){
+            // #box 요소의 너비를 200으로 애니메이션 (1초)
+            $('#box').animate({
+                width: 200
+            }, 1000)
+            // 1초 대기 후, 너비와 높이를 100으로 애니메이션 (1초)
+            .delay(1000).animate({
+                width: 100, height: 100
+            }, 1000);
+        }, 3000);
+      });
+    </script>
+  </head>
+  <body>
+  <!-- 입력 양식 -->
+  <label>clearQueue</label>
+  <input id="clearQueue" type="checkbox">
+  <br>
+  <label>goToEnd</label>
+  <input id="goToEnd" type="checkbox">
+  <br>
+  <button id="stopButton">Stop</button>
+  <!-- 애니메이션 -->
+  <div id="box"></div>
+
+  </body>
+</html>

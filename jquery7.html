@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery Show</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+    <script>
+      $(document).ready(function () {
+        $('button').click(function(evnet){
+            $('.page').fadeToggle('normal');    
+        });
+    });
+    </script>
+    <style>
+        button{
+            background-color: skyblue;
+            color: blue;
+            font-size: 30px;
+        }
+    </style>
+  
+  </head>
+  <body>
+    <button><b>Toggle Show</b></button>
+    <div class = "page">
+        <h1>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita doloremque ab excepturi perferendis illo totam inventore nesciunt incidunt eaque, distinctio quod nihil, laudantium molestiae quae at modi laborum ut! Consequuntur.</h1>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, labore a eligendi, officia nihil omnis aspernatur dolorem, quas nam ipsum excepturi quae impedit sint architecto nisi non rerum. Neque, in!</p>
+    </div>
+  </body>
+</html>

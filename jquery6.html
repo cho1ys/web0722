@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery event2</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+    <script>
+      $(document).ready(function () {
+        $('a').click(function(evnet){
+            alert('click');
+            event.preventDefault();
+        });
+    });
+    </script>
+  
+  </head>
+  <body>
+    <a href="http://hanbit.co.kr">Hanbit publishing</a>
+  </body>
+</html>

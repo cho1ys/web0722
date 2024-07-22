@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8"> <!-- 문서의 인코딩을 UTF-8로 설정 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 뷰포트 설정으로 반응형 웹 디자인 지원 -->
+    <title>jQuery class</title> <!-- 문서의 제목 설정 -->
+    <style>
+        #box{
+            width:100px; height:100px; background-color: skyblue; /* 박스의 초기 스타일 설정 */
+        }
+        #box.hover{
+            background-color: blue; /* hover 클래스가 추가되면 배경색을 파란색으로 변경 */
+            border-radius: 50px; /* hover 클래스가 추가되면 모서리를 둥글게 만듦 */
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.4.js"></script> <!-- jQuery 라이브러리 포함 -->
+    <script>
+        $(document).ready(function (){ 
+            // 문서가 준비되면 (DOM이 완전히 로드되면) 실행
+            $('#box').hover(function(){
+                $('#box').addClass('hover'); // 마우스가 박스에 들어올 때 hover 클래스를 추가
+            }, function(){
+                $('#box').removeClass('hover'); // 마우스가 박스를 벗어날 때 hover 클래스를 제거
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="box"></div> <!-- 스타일과 jQuery 이벤트가 적용될 박스 요소 -->
+</body>
+</html>

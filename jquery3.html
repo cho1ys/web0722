@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8"> <!-- 문서의 인코딩을 UTF-8로 설정 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 뷰포트 설정으로 반응형 웹 디자인 지원 -->
+    <title>jQuery text</title> <!-- 문서의 제목 설정 -->
+    <script src="https://code.jquery.com/jquery-3.6.4.js"></script> <!-- jQuery 라이브러리 포함 -->
+    <script>
+        $(document).ready(function (){
+            // 문서가 준비되면 (DOM이 완전히 로드되면) 실행
+            let text = $('h1').text(); // 첫 번째 <h1> 요소의 텍스트 콘텐츠를 가져와서 변수 text에 저장
+            let html = $('h1').html(); // 첫 번째 <h1> 요소의 HTML 콘텐츠를 가져와서 변수 html에 저장
+            alert("text : " + text); // text 변수의 값을 경고창으로 표시
+            alert("html : " + html); // html 변수의 값을 경고창으로 표시
+        });
+    </script>
+</head>
+<body>
+    <h1>header-0</h1> <!-- 첫 번째 <h1> 요소 -->
+    <h1>header-1</h1> <!-- 두 번째 <h1> 요소 -->
+</body>
+</html>

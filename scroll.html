@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll</title>
+    <!-- jQuery 라이브러리 포함 -->
+    <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+    <script>
+        // 문서가 완전히 로드된 후 실행되는 jQuery 함수
+        $(document).ready(function(){
+            // 문서에 <h1> 요소 20개를 추가하는 함수
+            let appendDocument = function(){
+                for (var i = 0; i < 20; i++){
+                    $('<h1>Infinity Scroll</h1>').appendTo('body');
+                }
+            };
+            
+            // 페이지가 로드될 때 처음 20개의 <h1> 요소를 추가
+            appendDocument();
+
+            // 사용자가 스크롤할 때 실행되는 함수
+            $(window).scroll(function(){
+                // 현재 스크롤 위치와 창의 높이를 더한 값
+                let scrollHeight = $(window).scrollTop() + $(window).height();
+                // 문서 전체의 높이
+                let documentHeight = $(document).height();
+
+                // 스크롤 위치가 문서의 끝에 도달했을 때
+                if(scrollHeight == documentHeight){
+                    // 새로운 <h1> 요소 20개를 추가
+                    appendDocument();
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <!-- 처음에는 비어 있는 <body> -->
+</body>
+</html>
